@@ -6,7 +6,7 @@
 #include <stdlib.h> 
 
 typedef struct {
-    int **board; 
+    char **board; 
     int size;      
 } Board;
 
