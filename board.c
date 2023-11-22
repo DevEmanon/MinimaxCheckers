@@ -61,13 +61,19 @@ void displayBoard(const Board *board)
             switch (board->board[i][j])
             {
                 case 'x':
-                    printf("\033[31mx \033[0m"); // Rouge
+                    printf("\033[31mx \033[0m"); // Red
                     break;
                 case 'o':
-                    printf("\033[36mo \033[0m"); // Bleu ciel
+                    printf("\033[36mo \033[0m"); // Blue sky
+                    break;
+                case 'X':
+                    printf("\033[31mX \033[0m"); // Red
+                    break;
+                case 'O':
+                    printf("\033[36mO \033[0m"); // Blue sky
                     break;
                 case '.':
-                    printf(". "); // Blanc
+                    printf(". "); // White
                     break;
             }
         }

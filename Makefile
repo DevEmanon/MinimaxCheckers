@@ -2,7 +2,7 @@ TARGET = MinimaxCheckers
 
 CC = gcc
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -Wall -Wextra -fsanitize=address -g
 
 SRCS = main.c board.c evaluation.c game_logic.c minimax.c player.c utils.c
 

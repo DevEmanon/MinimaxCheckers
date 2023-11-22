@@ -1,12 +1,11 @@
 #include "board.h"
-#include "evaluation.h"
-#include "game_logic.h"
-#include "minimax.h"
-#include "player.h"
+#include "utils.h"
 #include <stdio.h>
 
 int main() {
     Board board;
+    char positionStr[] = "h7";
+    printPosition(convertCharToPosition(positionStr));
     initializeBoard(&board, 10);
     displayBoard(&board);
     printf("\n");
