@@ -80,3 +80,19 @@ void displayBoard(const Board *board)
         printf("\n");
     }
 }
+
+int getTypeOfPiecesInACase(Board *board, Position *position)
+{
+    if (board->board[position->line][position->column] == 'x' || board->board[position->line][position->column] == 'o')
+    {
+        return 1;
+    }
+    else if (board->board[position->line][position->column] == 'X' || board->board[position->line][position->column] == 'O')
+    {
+        return 2;
+    }
+    else{
+        return 0;
+    }
+
+}

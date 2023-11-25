@@ -3,15 +3,29 @@
 Position* convertCharToPosition(char *position)
 {
     convertToLower(position, 2);
-    Position *pos = (Position*) malloc(sizeof(Position));
-    *pos = (Position) { .line = atoi(&position[1]) - 1, .column = (int)position[0] - 97};
+    
+    Position *pos = createNewPosition(atoi(&position[1]) - 1, (int)position[0] - 97);
     return pos;
     
 }
 
-// char* convertPositionToChar(Position *position)
-// {
-// }
+char* convertPositionToChar(Position* position) {
+    char* positionStr = (char*) malloc(3 * sizeof(char));
+    
+    positionStr[0] = (char)(position->column + 'a');
+    positionStr[1] = (char)(position->line + '1');
+    positionStr[2] = '\0';
+
+    return positionStr;
+}
+
+
+Position* createNewPosition(int newLine, int newColumn)
+{
+    Position *pos = (Position*) malloc(sizeof(Position));
+    *pos = (Position) { .line = newLine, .column = newColumn};
+    return pos;
+}
 
 void printPosition(Position *position)
 {
