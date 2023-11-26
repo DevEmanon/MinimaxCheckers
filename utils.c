@@ -42,3 +42,57 @@ void convertToLower(char *str, int length)
         }
     }
 }
+
+void initializeObligatoryMoves(ObligatoryMoves *moves)
+{
+    moves->sequences = malloc(MAX_MOVES * sizeof(Position*));
+    moves->sequenceLengths = malloc(MAX_MOVES * sizeof(int));
+    moves->numberOfSequences = 0;
+}
+
+
+void addObligatorySequence(ObligatoryMoves *moves, Position *sequence, int sequenceLength)
+{
+    int i;
+    if (moves->numberOfSequences < MAX_MOVES)
+    {
+        Position *newSequence = malloc(sequenceLength * sizeof(Position));
+        for (i = 0; i < sequenceLength; ++i)
+        {
+            newSequence[i] = sequence[i];
+        }
+        moves->sequences[moves->numberOfSequences] = newSequence;
+        moves->sequenceLengths[moves->numberOfSequences] = sequenceLength;
+        moves->numberOfSequences++;
+    }
+}
+
+void cleanObligatoryMoves(ObligatoryMoves *moves)
+{
+    int i;
+    for (i = 0; i < moves->numberOfSequences; ++i)
+    {
+        free(moves->sequences[i]);
+    }
+    free(moves->sequences);
+    free(moves->sequenceLengths);
+    moves->sequences = NULL;
+    moves->sequenceLengths = NULL;
+    moves->numberOfSequences = 0;
+}
+
+void initializePossibleMoves(PossibleMoves *moves)
+{
+    moves->numberOfPairs = 0;
+}
+
+void addPossibleMove(PossibleMoves *moves, Position from, Position to)
+{
+    if (moves->numberOfPairs < MAX_MOVES)
+    {
+        moves->pairs[moves->numberOfPairs][0] = from;
+        moves->pairs[moves->numberOfPairs][1] = to;
+        moves->numberOfPairs++;
+    }
+}
+

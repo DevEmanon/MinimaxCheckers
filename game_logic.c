@@ -126,7 +126,7 @@ int checkCapturePawn(Board *board, Position *caseToCheck, int isAI)
 
 int checkCaptureQueen(Board *board, Position *caseToCheck, int isAI)
 {
-  
+    
 }
 
 int isGameOver(Board *board, int isAI)
